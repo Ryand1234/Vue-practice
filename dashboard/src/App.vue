@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
     <div class="columns">
       <div class="column has-background-primary  is-one-fifth">
           <div id="search">
@@ -9,31 +8,46 @@
               <img alt="Vue logo" src="./assets/submit.svg">
             </button>
           </div>
-        <div id="info">
+        <div id="info" class="mt-6 pt-4">
           <div class="wrapper-left">
-            <div id="current-weather">
-              {{currentWeather.temp}}
-              <span>*C</span>
+            <div id="current-weather" class="is-size-1-desktop">
+              <p> <span class="has-text-weight-bold is-text-size-3">
+                {{currentWeather.temp}}
+              </span>*C</p>
             </div>
-            <div id="weather-desc">
+            <div id="weather-desc" class="has-text-weight-bold">
               {{currentWeather.summary}}
             </div>
-            <div class="temp-max-min">
-              <div class="max-desc">
+            <div class="columns mt-2">
+              <div class="column">
+                <div id="min-detail">
+                  <span>Low: </span>
+                  {{currentWeather.todayHighLow.todayTempLow}}
+                  <span>*C</span>
+                </div>
+                <div>at {{currentWeather.todayHighLow.todayTempLowTime}}</div>
+              </div>
+              <div class="column">
                 <div id="max-detail">
-                  <i>^</i>
+                  <span>High: </span>
                   {{currentWeather.todayHighLow.todayTempHigh}}
                   <span>*C</span>
                 </div>
                 <div>at {{currentWeather.todayHighLow.todayTempHighTime}}</div>
               </div>
-              <div class="min-desc">
-                <div id="min-detail">
-                  <i>^</i>
-                  {{currentWeather.todayHighLow.todayTempLow}}
-                  <span>*C</span>
-                </div>
-                <div>at {{currentWeather.todayHighLow.todayTempLowTime}}</div>
+            </div>
+            <div class="mt-6 pt-3">
+              {{currentWeather.dayTime.day}}, {{currentWeather.dayTime.date}}, {{currentWeather.dayTime.time}} 
+            </div>
+            <div class="mt-3 has-text-left ml-5">
+              <div class="has-text-weight-bold">
+                {{currentWeather.location.place}}
+              </div>
+              <div>
+                Lat: {{currentWeather.location.lat}}
+              </div>
+              <div>
+                Long: {{currentWeather.location.lng}}
               </div>
             </div>
           </div>
@@ -64,6 +78,16 @@ export default {
             todayTempLow: "26",
             todayTempHighTime: "03:00 pm",
             todayTempLowTime: "04:50 am"
+          },
+          dayTime: {
+            day: "Thu",
+            date: "Dec 24, 2020",
+            time: "04:21 AM"
+          },
+          location: {
+            lat: "40.174*N",
+            lng: "74.001 *W",
+            place: "New Delhi, India"
           }
         },
         highlights: {
