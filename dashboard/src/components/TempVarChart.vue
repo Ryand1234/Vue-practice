@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<p>Current Temprature is {{temp}}</p>
+		<p>{{temp}}</p>
 	</div>
 </template>
 

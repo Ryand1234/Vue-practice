@@ -1,8 +1,7 @@
 <template>
 	<div>
-		<p>Today's Wind Status</p>
-		<p>Spee: {{speed}}</p>
-		<p>Direction: {{direction}}</p>
+		<p>Wind Speed — {{ speed }}</p>
+		<p>Wind Direction — , or {{ direction }} degree clockwise with respect to true N as 0 degree.</p>
 	</div>
 </template>
 

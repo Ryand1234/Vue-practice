@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<h3>Todays highlights are </h3>
 		<uv-index :uvIndex="uvIndex"></uv-index>
 		<visibility :visibility="visibility"></visibility>
 		<wind-status :windStatus="windStatus"></wind-status>

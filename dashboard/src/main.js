@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import './../node_modules/bulma/css/bulma.css'
 import FusionCharts from 'fusioncharts'
 import Charts from 'fusioncharts/fusioncharts.charts'
 import Widgets from 'fusioncharts/fusioncharts.widgets'

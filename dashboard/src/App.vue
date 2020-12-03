@@ -1,8 +1,48 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <p>The Current File name is {{filename}}</p>
-    <Content v-bind:weather_data="weather_data"></Content>
+    <div class="columns">
+      <div class="column has-background-primary  is-one-fifth">
+          <div id="search">
+            <input type="text" id="location-input" ref="input" placeholder="Your Location" @key.enter="organizingDetails">
+            <button id="search-btn" @click="organizingDetails">
+              <img alt="Vue logo" src="./assets/submit.svg">
+            </button>
+          </div>
+        <div id="info">
+          <div class="wrapper-left">
+            <div id="current-weather">
+              {{currentWeather.temp}}
+              <span>*C</span>
+            </div>
+            <div id="weather-desc">
+              {{currentWeather.summary}}
+            </div>
+            <div class="temp-max-min">
+              <div class="max-desc">
+                <div id="max-detail">
+                  <i>^</i>
+                  {{currentWeather.todayHighLow.todayTempHigh}}
+                  <span>*C</span>
+                </div>
+                <div>at {{currentWeather.todayHighLow.todayTempHighTime}}</div>
+              </div>
+              <div class="min-desc">
+                <div id="min-detail">
+                  <i>^</i>
+                  {{currentWeather.todayHighLow.todayTempLow}}
+                  <span>*C</span>
+                </div>
+                <div>at {{currentWeather.todayHighLow.todayTempLowTime}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <Content :highlights="highlights" ></Content>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,10 +56,15 @@ export default {
   data() {
     return {
       filename: "App.vue",
-      weather_data: {
-        location: 'California',
-        temperature: {
-          current: "40 C"
+      currentWeather: {
+          temp: "40",
+          summary: "Nice Weather",
+          todayHighLow: {
+            todayTempHigh: "42",
+            todayTempLow: "26",
+            todayTempHighTime: "03:00 pm",
+            todayTempLowTime: "04:50 am"
+          }
         },
         highlights: {
           uvindex: "3",
@@ -29,7 +74,6 @@ export default {
           },
           visibility: "12 km",
         },
-      }
     }
   }
 }

@@ -9,16 +9,10 @@
 import TempVarChart from './TempVarChart.vue'
 import Highlights from './Highlights.vue'
 export default {
-	props: ['weather_data'],
+	props: ['tempVar', 'highlights'],
 	components: {
 		'temp-var-chart': TempVarChart,
 		'today-highlight': Highlights
-	},
-	data(){
-		return{
-			tempVar: this.weather_data.temperature,
-			highlights: this.weather_data.highlights
-		}
 	}
 }
 </script>
