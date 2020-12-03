@@ -21,7 +21,7 @@ export default {
         temperature: {
           current: "40 C"
         },
-        highlight: {
+        highlights: {
           uvindex: "3",
           windstatus: {
             speed: "20 km/h",
