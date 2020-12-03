@@ -1,17 +1,36 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>The Current File name is {{filename}}</p>
+    <Content v-bind:weather_data="weather_data"></Content>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Content from './components/Content.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    'Content': Content
+  },
+  data() {
+    return {
+      filename: "App.vue",
+      weather_data: {
+        location: 'California',
+        temperature: {
+          current: "40 C"
+        },
+        highlight: {
+          uvindex: "3",
+          windstatus: {
+            speed: "20 km/h",
+            direction: "N-E"
+          },
+          visibility: "12 km",
+        },
+      }
+    }
   }
 }
 </script>
